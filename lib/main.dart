@@ -1401,6 +1401,10 @@ class _SearchScreenState extends State<SearchScreen> {
     'Yael Zephyr',
     '1105037616',
     '0983427384',
+    '11111111111',
+    '23232323232323',
+
+    '90635741c14a-4aa7-80ef-052c19206723'
   ];
   List<String> resultados = [];
 
@@ -1446,9 +1450,13 @@ class _SearchScreenState extends State<SearchScreen> {
 
   List<String> filtrarNombres(String palabraClave) {
     // Utilizar FuzzyWuzzy para realizar la búsqueda
+    // ratio que define cómo se calcula la similitud entre la palabraClave y cada elemento de nombress
+    //  ratio es el numero que afecta a la sensibildiadde busquedad si es menro
+    // retorna  coincidencias con similitud menor pero si Ratio es mayor retorna  coincidencias
+    // con similitud mayor
     return nombress
         .where((nombre) =>
-            ratio(nombre.toLowerCase(), palabraClave.toLowerCase()) > 50)
+            ratio(nombre.toLowerCase(), palabraClave.toLowerCase()) > 44)
         .toList();
   }
 }
